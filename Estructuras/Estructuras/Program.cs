@@ -249,7 +249,10 @@ namespace Estructuras
 
         private static void searchCola()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("\n Digite el numero que desea buscar: \n");
+            int Dato = int.Parse(Console.ReadLine());
+
+            cola.searchCola(Dato);
         }
 
         private static void deleteCola()

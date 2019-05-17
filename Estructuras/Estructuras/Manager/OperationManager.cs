@@ -67,11 +67,11 @@ namespace Estructuras.Manager
                     Actual = Actual.Siguiente;
                 }
 
-                if (!Encontrado) Console.WriteLine("\n El numero no fue encontrado en la lista.");
+                if (!Encontrado) Console.WriteLine("\n El numero no fue encontrado.");
             }
             else
             {
-                Console.WriteLine("\n La lista se encuentra vacia.");
+                Console.WriteLine("\n No hay datos por mostrar.");
             }
         }
 
@@ -120,13 +120,13 @@ namespace Estructuras.Manager
 
                 if (!Encontrado)
                 {
-                    Console.WriteLine("\n El numero no fue encontrado en la lista.");
+                    Console.WriteLine("\n El numero no fue encontrado.");
                 }
 
             }
             else
             {
-                Console.WriteLine("\n La lista se encuentra vacia.");
+                Console.WriteLine("\n No hay datos por mostrar.");
             }
 
 

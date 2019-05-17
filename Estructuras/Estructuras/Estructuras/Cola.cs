@@ -35,5 +35,15 @@ namespace Estructuras.Estructuras
 
         }
 
+        public void searchCola(int dato)
+        {
+            operation.search(dato);
+        }
+
+        //public void deleteCola(int dato)
+        //{
+        //    operation.delete(dato);
+        //}
+
     }
 }
