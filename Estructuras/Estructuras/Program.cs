@@ -257,7 +257,11 @@ namespace Estructuras
 
         private static void deleteCola()
         {
-            throw new NotImplementedException();
+            showCola();
+            Console.WriteLine("\n Digite el numero que desea eliminar: \n");
+            int Dato = int.Parse(Console.ReadLine());
+
+            cola.deleteCola(Dato);
         }
 
         private static void showCola()

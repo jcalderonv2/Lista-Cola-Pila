@@ -32,7 +32,7 @@ namespace Estructuras.Manager
                 Ultimo = Nuevo;
             }
         }
-
+        
         public void Show()
         {
             var aux = new Nodo();

@@ -7,17 +7,8 @@ namespace Estructuras2
     class Lista
     {
 
-        private Nodo Primero = new Nodo();
-        private Nodo Ultimo = new Nodo();
         OperationManager operation = new OperationManager();
 
-        public Lista()
-        {
-
-            Primero = null;
-            Ultimo = null;
-
-        }
 
         public void InsertList(int num)
         {

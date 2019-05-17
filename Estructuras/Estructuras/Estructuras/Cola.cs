@@ -10,16 +10,9 @@ namespace Estructuras.Estructuras
 {
     class Cola
     {
-
-        private Nodo Primero = new Nodo();
-        private Nodo Ultimo = new Nodo();
+        
         OperationManager operation = new OperationManager();
 
-        public Cola()
-        {
-            Primero = null;
-            Ultimo = null;
-        }
 
         public void insertCola(int dato)
         {
@@ -40,10 +33,10 @@ namespace Estructuras.Estructuras
             operation.search(dato);
         }
 
-        //public void deleteCola(int dato)
-        //{
-        //    operation.delete(dato);
-        //}
+        public void deleteCola(int dato)
+        {
+            operation.delete(dato);
+        }
 
     }
 }
