@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Estructuras.Manager;
 using Estructuras2;
 
 namespace Estructuras.Estructuras
@@ -12,6 +13,7 @@ namespace Estructuras.Estructuras
 
         private Nodo Primero = new Nodo();
         private Nodo Ultimo = new Nodo();
+        OperationManager operation = new OperationManager();
 
         public Cola()
         {
@@ -19,43 +21,18 @@ namespace Estructuras.Estructuras
             Ultimo = null;
         }
 
-        public void insert(int dato)
+        public void insertCola(int dato)
         {
 
-            Nodo nuevo = new Nodo();
-            nuevo.Dato = dato;
-
-            if (Primero == null)
-            {
-                Primero = nuevo;
-                Primero.Siguiente = null;
-                Ultimo = nuevo;
-            }
-            else
-            {
-                Ultimo.Siguiente = nuevo;
-                nuevo.Siguiente = null;
-                Ultimo = nuevo;
-            }
+           operation.Insert(dato);
 
         }
 
         public void showCola()
         {
-            Nodo aux = new Nodo();
-            aux = Primero;
-            if (Primero != null)
-            {
-                while (aux != null)
-                {
-                    Console.WriteLine(" - " + aux.Dato);
-                    aux = aux.Siguiente;
-                }
-            }
-            else
-            {
-                Console.WriteLine("La lista se encuentra vacia.");
-            }
+            
+            operation.Show();
+
         }
 
     }

@@ -5,3 +5,10 @@ C:\Users\Josue\source\repos\Workspaces\Estructuras2\Estructuras\Estructuras\bin\
 C:\Users\Josue\source\repos\Workspaces\Estructuras2\Estructuras\Estructuras\bin\Debug\Estructuras.pdb
 C:\Users\Josue\source\repos\Workspaces\Estructuras2\Estructuras\Estructuras\obj\Debug\Estructuras.exe
 C:\Users\Josue\source\repos\Workspaces\Estructuras2\Estructuras\Estructuras\obj\Debug\Estructuras.pdb
+C:\Users\Josue\Documents\GitHub\Lista-Cola-Pila\Estructuras\Estructuras\bin\Debug\Estructuras.exe.config
+C:\Users\Josue\Documents\GitHub\Lista-Cola-Pila\Estructuras\Estructuras\bin\Debug\Estructuras.exe
+C:\Users\Josue\Documents\GitHub\Lista-Cola-Pila\Estructuras\Estructuras\bin\Debug\Estructuras.pdb
+C:\Users\Josue\Documents\GitHub\Lista-Cola-Pila\Estructuras\Estructuras\obj\Debug\Estructuras.csprojAssemblyReference.cache
+C:\Users\Josue\Documents\GitHub\Lista-Cola-Pila\Estructuras\Estructuras\obj\Debug\Estructuras.csproj.CoreCompileInputs.cache
+C:\Users\Josue\Documents\GitHub\Lista-Cola-Pila\Estructuras\Estructuras\obj\Debug\Estructuras.exe
+C:\Users\Josue\Documents\GitHub\Lista-Cola-Pila\Estructuras\Estructuras\obj\Debug\Estructuras.pdb

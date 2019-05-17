@@ -1,4 +1,5 @@
 ﻿using System;
+using Estructuras.Estructuras;
 using Estructuras2;
 
 namespace Estructuras
@@ -7,6 +8,7 @@ namespace Estructuras
     class Program
     {
         static Lista list = new Lista();
+        static Cola cola = new Cola();
         
 
         static void Main(string[] args)
@@ -153,7 +155,7 @@ namespace Estructuras
             Console.WriteLine("\n Digite el numero que desea buscar: \n");
             int Dato = int.Parse(Console.ReadLine());
 
-            list.search(Dato);
+            list.searchList(Dato);
             
         }
 
@@ -165,7 +167,7 @@ namespace Estructuras
             Console.WriteLine("\n Digite el numero que desea eliminar: \n");
             int Dato = int.Parse(Console.ReadLine());
 
-            list.delete(Dato);
+            list.deleteList(Dato);
         }
 
         static void showList()
@@ -237,7 +239,12 @@ namespace Estructuras
 
         private static void insertCola()
         {
-            throw new NotImplementedException();
+            Nodo Nuevo = new Nodo();
+            Console.WriteLine("\n Digite un numero: \n");
+            Nuevo.Dato = int.Parse(Console.ReadLine());
+
+            cola.insertCola(Nuevo.Dato);
+            Console.WriteLine("\n El numero " + "'" + Nuevo.Dato + "' " + "fue ingresado a la cola.");
         }
 
         private static void searchCola()
@@ -252,7 +259,9 @@ namespace Estructuras
 
         private static void showCola()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("\n La cola contiene los siguientes numeros: \n");
+            cola.showCola();
+            Console.WriteLine();
         }
 
         private static void menuPila()
