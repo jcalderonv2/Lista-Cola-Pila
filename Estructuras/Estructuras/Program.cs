@@ -9,6 +9,7 @@ namespace Estructuras
     {
         static Lista list = new Lista();
         static Cola cola = new Cola();
+        static Pila pila = new Pila();
         
 
         static void Main(string[] args)
@@ -273,11 +274,97 @@ namespace Estructuras
 
         private static void menuPila()
         {
-            throw new NotImplementedException();
+            string option;
+
+            do
+            {
+
+                Console.WriteLine("\n ---Menu pila--- \n");
+                Console.WriteLine("\n 1.Agregar dato.");
+                Console.WriteLine("\n 2.Buscar dato.");
+                Console.WriteLine("\n 3.Eliminar dato.");
+                Console.WriteLine("\n 4.Mostrar pila.");
+                Console.WriteLine("\n 5.Atras.");
+                Console.WriteLine("\n Seleccione una opcion: \n");
+
+                option = Console.ReadLine();
+                Console.WriteLine("\n La opcion seleccionada fue: " + option);
+                ProcessPila(option);
+
+
+            } while (option != "5");
         }
 
+        private static void ProcessPila(string option)
+        {
+            switch (option)
+            {
+
+                case "1":
+
+                    insertPila();
+
+                    break;
+
+                case "2":
+
+                    searchPila();
+
+                    break;
+
+                case "3":
+                    deletePila();
+
+                    break;
+
+                case "4":
+                    showPila();
+
+                    break;
 
 
+                default:
 
+                    Console.WriteLine("\n Opcion invalida.");
+                    break;
+
+            }
+        }
+
+        
+
+        private static void insertPila()
+        {
+            Nodo Nuevo = new Nodo();
+            Console.WriteLine("\n Digite un numero: \n");
+            Nuevo.Dato = int.Parse(Console.ReadLine());
+
+            pila.insertPila(Nuevo.Dato);
+            Console.WriteLine("\n El numero " + "'" + Nuevo.Dato + "' " + "fue ingresado a la pila.");
+        }
+
+        private static void showPila()
+        {
+            Console.WriteLine("\n La pila contiene los siguientes numeros: \n");
+            pila.showPila();
+            Console.WriteLine();
+        }
+
+        private static void searchPila()
+        {
+            Console.WriteLine("\n Digite el numero que desea buscar: \n");
+            int Dato = int.Parse(Console.ReadLine());
+
+            pila.searchPila(Dato);
+        }
+
+        private static void deletePila()
+        {
+            showPila();
+            Console.WriteLine("\n Digite el numero que desea eliminar: \n");
+            int Dato = int.Parse(Console.ReadLine());
+
+            pila.deletePila(Dato);
+        }
     }
 }

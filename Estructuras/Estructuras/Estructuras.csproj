@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Estructuras\Cola.cs" />
     <Compile Include="Estructuras\Lista.cs" />
+    <Compile Include="Estructuras\Pila.cs" />
     <Compile Include="Manager\OperationManager.cs" />
     <Compile Include="Nodo.cs" />
     <Compile Include="Program.cs" />

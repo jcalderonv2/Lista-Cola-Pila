@@ -131,5 +131,15 @@ namespace Estructuras.Manager
 
 
         }
+
+        public void InsertPila(int dato)
+        {
+
+            var Nuevo = new Nodo();
+            Nuevo.Dato = dato;
+
+            Nuevo.Siguiente = Primero;
+            Primero = Nuevo;
+        }
     }
 }
