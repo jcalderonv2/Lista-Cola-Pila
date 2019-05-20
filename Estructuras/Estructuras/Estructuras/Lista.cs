@@ -1,20 +1,17 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using Estructuras.Manager;
+﻿using Estructuras.Manager;
 
-namespace Estructuras2
+namespace Estructuras.Estructuras
 {
     class Lista
     {
 
         OperationManager operation = new OperationManager();
-
-
-        public void InsertList(int num)
+       
+        public void Sort(int num)
         {
 
-            operation.Insert(num);
-            
+            operation.Sort(num);
+
         }
 
         public void ShowList()
@@ -24,17 +21,17 @@ namespace Estructuras2
            
         }
 
-        public void searchList(int dato)
+        public void SearchList(int dato)
         {
 
-         operation.search(dato);
+         operation.Search(dato);
             
         }
 
-        public void deleteList(int dato)
+        public void DeleteList(int dato)
         {
 
-            operation.delete(dato);
+            operation.Delete(dato);
 
         }
 

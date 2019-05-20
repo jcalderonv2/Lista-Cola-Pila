@@ -1,51 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Estructuras.Manager;
-using Estructuras2;
+﻿using Estructuras.Manager;
 
 namespace Estructuras.Estructuras
 {
     class Pila
     {
-
-        private Nodo Primero = new Nodo();
+        
         OperationManager operation = new OperationManager();
 
-        public Pila()
-        {
-
-            Primero = null;
-
-        }
-
-        public void insertPila(int dato)
+        public void InsertPila(int dato)
         {
 
          operation.InsertPila(dato);
 
         }
 
-        public void showPila()
+        public void ShowPila()
         {
 
             operation.Show();
 
         }
 
-        public void searchPila(int dato)
+        public void SearchPila(int dato)
         {
 
-            operation.search(dato);
+            operation.Search(dato);
 
         }
 
-        public void deletePila(int dato)
+        public void DeletePila(int dato)
         {
 
-            operation.delete(dato);
+            operation.Delete(dato);
 
         }
 

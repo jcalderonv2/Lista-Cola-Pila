@@ -5,39 +5,83 @@ namespace Estructuras.Manager
 {
     internal class OperationManager
     {
-        private Nodo Primero = new Nodo();
-        private Nodo Ultimo = new Nodo();
+        private Nodo _primero = new Nodo();
+        private Nodo _ultimo = new Nodo();
+
+
 
         public OperationManager()
         {
-            Primero = null;
-            Ultimo = null;
+            _primero = null;
+            _ultimo = null;
+            
         }
 
         public void Insert(int num)
         {
-            var Nuevo = new Nodo();
-            Nuevo.Dato = num;
+            var nuevo = new Nodo();
+            nuevo.Dato = num;
 
-            if (Primero == null)
+            if (_primero == null)
             {
-                Primero = Nuevo;
-                Primero.Siguiente = null;
-                Ultimo = Nuevo;
+                _primero = nuevo;
+                _primero.Siguiente = null;
+                _ultimo = nuevo;
             }
             else
             {
-                Ultimo.Siguiente = Nuevo;
-                Nuevo.Siguiente = null;
-                Ultimo = Nuevo;
+                _ultimo.Siguiente = nuevo;
+                nuevo.Siguiente = null;
+                _ultimo = nuevo;
             }
         }
-        
+
+        public void Sort(int num)
+        {
+
+            Nodo nuevo = new Nodo();
+            nuevo.Dato = num;
+
+            if (_primero == null)
+            {
+                _primero = nuevo;
+            }
+            else
+            {
+                if (num < _primero.Dato)
+                {
+                    nuevo.Siguiente = _primero;
+                    _primero = nuevo;
+                }
+                else
+                {
+                    Nodo aux = _primero;
+                    Nodo atras = _primero;
+
+                    while (num >= aux.Dato && aux.Siguiente != null)
+                    {
+                        atras = aux;
+                        aux = aux.Siguiente;
+                    }
+                    if (num >= aux.Dato)
+                    {
+                        aux.Siguiente = nuevo;
+                    }
+                    else
+                    {
+                        nuevo.Siguiente = aux;
+                        atras.Siguiente = nuevo;
+                    }
+                }
+            }
+
+        }
+
         public void Show()
         {
             var aux = new Nodo();
-            aux = Primero;
-            if (Primero != null)
+            aux = _primero;
+            if (_primero != null)
                 while (aux != null)
                 {
                     Console.WriteLine(" - " + aux.Dato);
@@ -47,13 +91,13 @@ namespace Estructuras.Manager
                 Console.WriteLine("\n No hay datos por mostrar.");
         }
 
-        public void search(int dato)
+        public void Search(int dato)
         {
             var Actual = new Nodo();
-            Actual = Primero;
+            Actual = _primero;
             var Encontrado = false;
 
-            if (Primero != null)
+            if (_primero != null)
             {
                 while (Actual != null && Encontrado != true)
                 {
@@ -75,16 +119,16 @@ namespace Estructuras.Manager
             }
         }
 
-        public void delete(int dato)
+        public void Delete(int dato)
         {
 
             Nodo Actual = new Nodo();
-            Actual = Primero;
+            Actual = _primero;
             Nodo Anterior = new Nodo();
             Anterior = null;
             bool Encontrado = false;
 
-            if (Primero != null)
+            if (_primero != null)
             {
 
                 while (Actual != null && Encontrado != true)
@@ -94,14 +138,14 @@ namespace Estructuras.Manager
                     {
 
 
-                        if (Actual == Primero)
+                        if (Actual == _primero)
                         {
-                            Primero = Primero.Siguiente;
+                            _primero = _primero.Siguiente;
                         }
-                        else if (Actual == Ultimo)
+                        else if (Actual == _ultimo)
                         {
                             Anterior.Siguiente = null;
-                            Ultimo = Anterior;
+                            _ultimo = Anterior;
                         }
                         else
                         {
@@ -135,11 +179,11 @@ namespace Estructuras.Manager
         public void InsertPila(int dato)
         {
 
-            var Nuevo = new Nodo();
-            Nuevo.Dato = dato;
+            var nuevo = new Nodo();
+            nuevo.Dato = dato;
 
-            Nuevo.Siguiente = Primero;
-            Primero = Nuevo;
+            nuevo.Siguiente = _primero;
+            _primero = nuevo;
         }
     }
 }

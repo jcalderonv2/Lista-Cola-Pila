@@ -12,7 +12,7 @@ namespace Estructuras
         static Pila pila = new Pila();
         
 
-        static void Main(string[] args)
+        static void Main()
         {
             
             MainMenu();
@@ -52,18 +52,18 @@ namespace Estructuras
 
                 case "1":
 
-                    menuLista();
+                    MenuLista();
 
                     break;
 
                 case "2":
 
-                    menuCola();
+                    MenuCola();
 
                     break;
 
                 case "3":
-                    menuPila();
+                    MenuPila();
 
                     break;
 
@@ -77,7 +77,7 @@ namespace Estructuras
             }
         }
 
-        private  static void menuLista()
+        private  static void MenuLista()
         {
             string option;
 
@@ -107,23 +107,23 @@ namespace Estructuras
 
                 case "1":
 
-                    insertList();
+                    InsertList();
 
                     break;
 
                 case "2":
 
-                    searchList();
+                    SearchList();
 
                     break;
 
                 case "3":
-                    deleteList();
+                    DeleteList();
 
                     break;
 
                 case "4":
-                    showList();
+                    ShowList();
 
                     break;
 
@@ -138,40 +138,40 @@ namespace Estructuras
 
         
 
-        public static void insertList()
+        public static void InsertList()
         {
             
-            Nodo Nuevo = new Nodo();
+            Nodo nuevo = new Nodo();
             Console.WriteLine("\n Digite un numero: \n");
-            Nuevo.Dato = int.Parse(Console.ReadLine());
+            nuevo.Dato = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
 
-            list.InsertList(Nuevo.Dato);
-            Console.WriteLine("\n El numero " + "'" + Nuevo.Dato + "' " + "fue ingresado a la lista.");
+            list.Sort(nuevo.Dato);
+            Console.WriteLine("\n El numero " + "'" + nuevo.Dato + "' " + "fue ingresado a la lista.");
 
         }
 
-        private static void searchList()
+        private static void SearchList()
         {
            
             Console.WriteLine("\n Digite el numero que desea buscar: \n");
-            int Dato = int.Parse(Console.ReadLine());
+            int dato = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
 
-            list.searchList(Dato);
+            list.SearchList(dato);
             
         }
 
 
-        private static void deleteList()
+        private static void DeleteList()
         {
             
-            showList();
+            ShowList();
             Console.WriteLine("\n Digite el numero que desea eliminar: \n");
-            int Dato = int.Parse(Console.ReadLine());
+            int dato = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
 
-            list.deleteList(Dato);
+            list.DeleteList(dato);
         }
 
-        static void showList()
+        static void ShowList()
         {
             Console.WriteLine("\n La lista contiene los siguientes numeros: \n");
             list.ShowList();
@@ -179,7 +179,7 @@ namespace Estructuras
         }
 
 
-        private static void menuCola()
+        private static void MenuCola()
         {
             string option;
 
@@ -209,23 +209,23 @@ namespace Estructuras
 
                 case "1":
 
-                    insertCola();
+                    InsertCola();
 
                     break;
 
                 case "2":
 
-                    searchCola();
+                    SearchCola();
 
                     break;
 
                 case "3":
-                    deleteCola();
+                    DeleteCola();
 
                     break;
 
                 case "4":
-                    showCola();
+                    ShowCola();
 
                     break;
 
@@ -238,41 +238,41 @@ namespace Estructuras
             }
         }
 
-        private static void insertCola()
+        private static void InsertCola()
         {
-            Nodo Nuevo = new Nodo();
+            Nodo nuevo = new Nodo();
             Console.WriteLine("\n Digite un numero: \n");
-            Nuevo.Dato = int.Parse(Console.ReadLine());
+            nuevo.Dato = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
 
-            cola.insertCola(Nuevo.Dato);
-            Console.WriteLine("\n El numero " + "'" + Nuevo.Dato + "' " + "fue ingresado a la cola.");
+            cola.InsertCola(nuevo.Dato);
+            Console.WriteLine("\n El numero " + "'" + nuevo.Dato + "' " + "fue ingresado a la cola.");
         }
 
-        private static void searchCola()
+        private static void SearchCola()
         {
             Console.WriteLine("\n Digite el numero que desea buscar: \n");
-            int Dato = int.Parse(Console.ReadLine());
+            int dato = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
 
-            cola.searchCola(Dato);
+            cola.SearchCola(dato);
         }
 
-        private static void deleteCola()
+        private static void DeleteCola()
         {
-            showCola();
+            ShowCola();
             Console.WriteLine("\n Digite el numero que desea eliminar: \n");
-            int Dato = int.Parse(Console.ReadLine());
+            int dato = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
 
-            cola.deleteCola(Dato);
+            cola.DeleteCola(dato);
         }
 
-        private static void showCola()
+        private static void ShowCola()
         {
             Console.WriteLine("\n La cola contiene los siguientes numeros: \n");
-            cola.showCola();
+            cola.ShowCola();
             Console.WriteLine();
         }
 
-        private static void menuPila()
+        private static void MenuPila()
         {
             string option;
 
@@ -302,23 +302,23 @@ namespace Estructuras
 
                 case "1":
 
-                    insertPila();
+                    InsertPila();
 
                     break;
 
                 case "2":
 
-                    searchPila();
+                    SearchPila();
 
                     break;
 
                 case "3":
-                    deletePila();
+                    DeletePila();
 
                     break;
 
                 case "4":
-                    showPila();
+                    ShowPila();
 
                     break;
 
@@ -333,38 +333,38 @@ namespace Estructuras
 
         
 
-        private static void insertPila()
+        private static void InsertPila()
         {
-            Nodo Nuevo = new Nodo();
+            Nodo nuevo = new Nodo();
             Console.WriteLine("\n Digite un numero: \n");
-            Nuevo.Dato = int.Parse(Console.ReadLine());
+            nuevo.Dato = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
 
-            pila.insertPila(Nuevo.Dato);
-            Console.WriteLine("\n El numero " + "'" + Nuevo.Dato + "' " + "fue ingresado a la pila.");
+            pila.InsertPila(nuevo.Dato);
+            Console.WriteLine("\n El numero " + "'" + nuevo.Dato + "' " + "fue ingresado a la pila.");
         }
 
-        private static void showPila()
+        private static void ShowPila()
         {
             Console.WriteLine("\n La pila contiene los siguientes numeros: \n");
-            pila.showPila();
+            pila.ShowPila();
             Console.WriteLine();
         }
 
-        private static void searchPila()
+        private static void SearchPila()
         {
             Console.WriteLine("\n Digite el numero que desea buscar: \n");
-            int Dato = int.Parse(Console.ReadLine());
+            int dato = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
 
-            pila.searchPila(Dato);
+            pila.SearchPila(dato);
         }
 
-        private static void deletePila()
+        private static void DeletePila()
         {
-            showPila();
+            ShowPila();
             Console.WriteLine("\n Digite el numero que desea eliminar: \n");
-            int Dato = int.Parse(Console.ReadLine());
+            int dato = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
 
-            pila.deletePila(Dato);
+            pila.DeletePila(dato);
         }
     }
 }

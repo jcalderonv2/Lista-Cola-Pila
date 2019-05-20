@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Estructuras.Manager;
-using Estructuras2;
+﻿using Estructuras.Manager;
 
 namespace Estructuras.Estructuras
 {
@@ -13,29 +7,28 @@ namespace Estructuras.Estructuras
         
         OperationManager operation = new OperationManager();
 
-
-        public void insertCola(int dato)
+        public void InsertCola(int dato)
         {
 
            operation.Insert(dato);
 
         }
 
-        public void showCola()
+        public void ShowCola()
         {
             
             operation.Show();
 
         }
 
-        public void searchCola(int dato)
+        public void SearchCola(int dato)
         {
-            operation.search(dato);
+            operation.Search(dato);
         }
 
-        public void deleteCola(int dato)
+        public void DeleteCola(int dato)
         {
-            operation.delete(dato);
+            operation.Delete(dato);
         }
 
     }
