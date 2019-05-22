@@ -10,13 +10,19 @@ namespace Estructuras
         static Lista list = new Lista();
         static Cola cola = new Cola();
         static Pila pila = new Pila();
-        
+
 
         static void Main()
         {
-            
-            MainMenu();
+            Program CallingTheRealMain = new Program();
+            CallingTheRealMain.Main2();
 
+
+        }
+
+        public void Main2()
+        {
+            MainMenu();
         }
 
         private static void MainMenu()
@@ -27,7 +33,7 @@ namespace Estructuras
             do
             {
 
-               
+
                 Console.WriteLine("\n ---Menu principal--- \n");
                 Console.WriteLine("\n 1.Listas.");
                 Console.WriteLine("\n 2.Colas.");
@@ -38,7 +44,7 @@ namespace Estructuras
                 option = Console.ReadLine();
                 Console.WriteLine("\n La opcion seleccionada fue: " + option);
                 ProcessMainMenu(option);
-                
+
 
 
             } while (option != "4");
@@ -70,26 +76,28 @@ namespace Estructuras
 
                 default:
 
-                    
+
                     Console.WriteLine("\n Opcion invalida.");
                     break;
 
             }
         }
 
-        private  static void MenuLista()
+        public static void MenuLista()
         {
             string option;
 
             do
             {
-                
+
                 Console.WriteLine("\n ---Menu lista--- \n");
                 Console.WriteLine("\n 1.Agregar dato.");
                 Console.WriteLine("\n 2.Buscar dato.");
                 Console.WriteLine("\n 3.Eliminar dato.");
                 Console.WriteLine("\n 4.Mostrar lista.");
-                Console.WriteLine("\n 5.Atras.");
+                Console.WriteLine("\n 5.Pasar dato a cola.");
+                Console.WriteLine("\n 6.Pasar dato a pila.");
+                Console.WriteLine("\n 7.Atras.");
                 Console.WriteLine("\n Seleccione una opcion: \n");
 
                 option = Console.ReadLine();
@@ -97,7 +105,7 @@ namespace Estructuras
                 ProcessList(option);
 
 
-            } while (option != "5");
+            } while (option != "7");
         }
 
         private static void ProcessList(string option)
@@ -127,20 +135,29 @@ namespace Estructuras
 
                     break;
 
+                case "5":
+
+                    ListaCola();
+                    break;
+
+                case "6":
+
+                    ListaPila();
+                    break;
 
                 default:
-                    
+
                     Console.WriteLine("\n Opcion invalida.");
                     break;
 
             }
         }
 
-        
+
 
         public static void InsertList()
         {
-            
+
             Nodo nuevo = new Nodo();
             Console.WriteLine("\n Digite un numero: \n");
             nuevo.Dato = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
@@ -152,23 +169,23 @@ namespace Estructuras
 
         private static void SearchList()
         {
-           
+
             Console.WriteLine("\n Digite el numero que desea buscar: \n");
             int dato = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
 
             list.SearchList(dato);
-            
-        }
 
+        }
 
         private static void DeleteList()
         {
-            
+
             ShowList();
             Console.WriteLine("\n Digite el numero que desea eliminar: \n");
             int dato = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
 
             list.DeleteList(dato);
+
         }
 
         static void ShowList()
@@ -176,6 +193,36 @@ namespace Estructuras
             Console.WriteLine("\n La lista contiene los siguientes numeros: \n");
             list.ShowList();
             Console.WriteLine();
+        }
+
+        public static void ListaCola()
+        {
+
+            Nodo nuevo = new Nodo();
+            Console.WriteLine("\n Numeros disponibles en la lista: \n");
+            ShowList();
+            Console.WriteLine("\n Digite el numero que desea pasar a la cola: \n");
+            nuevo.Dato = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
+            list.ChangeToAnother(nuevo.Dato);
+            cola.InsertCola(nuevo.Dato);
+            list.DeleteList(nuevo.Dato);
+            Console.WriteLine("\n El numero " + "'" + nuevo.Dato + "' " + "fue ingresado a la cola.");
+
+        }
+
+        public static void ListaPila()
+        {
+
+            Nodo nuevo = new Nodo();
+            Console.WriteLine("\n Numeros disponibles en la lista: \n");
+            ShowList();
+            Console.WriteLine("\n Digite el numero que desea pasar a la pila: \n");
+            nuevo.Dato = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
+            list.ChangeToAnother(nuevo.Dato);
+            pila.InsertPila(nuevo.Dato);
+            list.DeleteList(nuevo.Dato);
+            Console.WriteLine("\n El numero " + "'" + nuevo.Dato + "' " + "fue ingresado a la pila.");
+
         }
 
 
@@ -191,7 +238,9 @@ namespace Estructuras
                 Console.WriteLine("\n 2.Buscar dato.");
                 Console.WriteLine("\n 3.Eliminar dato.");
                 Console.WriteLine("\n 4.Mostrar cola.");
-                Console.WriteLine("\n 5.Atras.");
+                Console.WriteLine("\n 5.Pasar dato a lista.");
+                Console.WriteLine("\n 6.Pasar dato a pila.");
+                Console.WriteLine("\n 7.Atras.");
                 Console.WriteLine("\n Seleccione una opcion: \n");
 
                 option = Console.ReadLine();
@@ -199,7 +248,7 @@ namespace Estructuras
                 ProcessCola(option);
 
 
-            } while (option != "5");
+            } while (option != "7");
         }
 
         private static void ProcessCola(string option)
@@ -226,6 +275,16 @@ namespace Estructuras
 
                 case "4":
                     ShowCola();
+
+                    break;
+
+                case "5":
+                    ColaLista();
+
+                    break;
+
+                case "6":
+                    ColaPila();
 
                     break;
 
@@ -272,6 +331,36 @@ namespace Estructuras
             Console.WriteLine();
         }
 
+        public static void ColaLista()
+        {
+
+            Nodo nuevo = new Nodo();
+            Console.WriteLine("\n Numeros disponibles en la cola: \n");
+            ShowCola();
+            Console.WriteLine("\n Digite el numero que desea pasar a la lista: \n");
+            nuevo.Dato = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
+            cola.ChangeToAnother(nuevo.Dato);
+            list.Sort(nuevo.Dato);
+            cola.DeleteCola(nuevo.Dato);
+            Console.WriteLine("\n El numero " + "'" + nuevo.Dato + "' " + "fue ingresado a la lista.");
+
+        }
+
+        public static void ColaPila()
+        {
+
+            Nodo nuevo = new Nodo();
+            Console.WriteLine("\n Numeros disponibles en la cola: \n");
+            ShowCola();
+            Console.WriteLine("\n Digite el numero que desea pasar a la pila: \n");
+            nuevo.Dato = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
+            cola.ChangeToAnother(nuevo.Dato);
+            pila.InsertPila(nuevo.Dato);
+            cola.DeleteCola(nuevo.Dato);
+            Console.WriteLine("\n El numero " + "'" + nuevo.Dato + "' " + "fue ingresado a la pila.");
+
+        }
+
         private static void MenuPila()
         {
             string option;
@@ -284,7 +373,9 @@ namespace Estructuras
                 Console.WriteLine("\n 2.Buscar dato.");
                 Console.WriteLine("\n 3.Eliminar dato.");
                 Console.WriteLine("\n 4.Mostrar pila.");
-                Console.WriteLine("\n 5.Atras.");
+                Console.WriteLine("\n 5.Pasar dato a lista.");
+                Console.WriteLine("\n 6.Pasar dato a cola.");
+                Console.WriteLine("\n 7.Atras.");
                 Console.WriteLine("\n Seleccione una opcion: \n");
 
                 option = Console.ReadLine();
@@ -292,7 +383,7 @@ namespace Estructuras
                 ProcessPila(option);
 
 
-            } while (option != "5");
+            } while (option != "7");
         }
 
         private static void ProcessPila(string option)
@@ -322,6 +413,16 @@ namespace Estructuras
 
                     break;
 
+                case "5":
+                    PilaLista();
+
+                    break;
+
+                case "6":
+                    PilaCola();
+
+                    break;
+
 
                 default:
 
@@ -331,7 +432,7 @@ namespace Estructuras
             }
         }
 
-        
+
 
         private static void InsertPila()
         {
@@ -365,6 +466,36 @@ namespace Estructuras
             int dato = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
 
             pila.DeletePila(dato);
+        }
+
+        public static void PilaLista()
+        {
+
+            Nodo nuevo = new Nodo();
+            Console.WriteLine("\n Numeros disponibles en la pila: \n");
+            ShowPila();
+            Console.WriteLine("\n Digite el numero que desea pasar a la lista: \n");
+            nuevo.Dato = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
+            pila.ChangeToAnother(nuevo.Dato);
+            list.Sort(nuevo.Dato);
+            pila.DeletePila(nuevo.Dato);
+            Console.WriteLine("\n El numero " + "'" + nuevo.Dato + "' " + "fue ingresado a la lista.");
+
+        }
+
+        public static void PilaCola()
+        {
+
+            Nodo nuevo = new Nodo();
+            Console.WriteLine("\n Numeros disponibles en la pila: \n");
+            ShowPila();
+            Console.WriteLine("\n Digite el numero que desea pasar a la cola: \n");
+            nuevo.Dato = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
+            pila.ChangeToAnother(nuevo.Dato);
+            cola.InsertCola(nuevo.Dato);
+            pila.DeletePila(nuevo.Dato);
+            Console.WriteLine("\n El numero " + "'" + nuevo.Dato + "' " + "fue ingresado a la cola.");
+
         }
     }
 }

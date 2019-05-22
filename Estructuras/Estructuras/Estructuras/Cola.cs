@@ -31,5 +31,12 @@ namespace Estructuras.Estructuras
             operation.Delete(dato);
         }
 
+        public void ChangeToAnother(int dato)
+        {
+
+            operation.Change(dato);
+
+        }
+
     }
 }

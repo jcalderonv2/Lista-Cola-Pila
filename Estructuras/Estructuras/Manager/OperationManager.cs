@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using Estructuras.Estructuras;
 using Estructuras2;
 
 namespace Estructuras.Manager
@@ -14,7 +17,7 @@ namespace Estructuras.Manager
         {
             _primero = null;
             _ultimo = null;
-            
+
         }
 
         public void Insert(int num)
@@ -185,5 +188,45 @@ namespace Estructuras.Manager
             nuevo.Siguiente = _primero;
             _primero = nuevo;
         }
+
+        public void Change(int dato)
+        {
+            Program CallingTheRealMain = new Program();
+            var Actual = new Nodo();
+            Actual = _primero;
+            var Encontrado = false;
+
+
+
+            if (_primero != null)
+            {
+                while (Actual != null && Encontrado != true)
+                {
+                    if (Actual.Dato == dato)
+                    {
+                        Encontrado = true;
+                    }
+
+
+                    Actual = Actual.Siguiente;
+                }
+
+
+                if (!Encontrado)
+                {
+                    Console.WriteLine("\n El numero no fue encontrado, por favor vuelva a intentarlo.");
+                    CallingTheRealMain.Main2();
+
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("\n No hay datos por mostrar.");
+            }
+
+        }
+
+
     }
 }

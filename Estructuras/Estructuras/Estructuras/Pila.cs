@@ -35,5 +35,12 @@ namespace Estructuras.Estructuras
 
         }
 
+        public void ChangeToAnother(int dato)
+        {
+
+            operation.Change(dato);
+
+        }
+
     }
 }

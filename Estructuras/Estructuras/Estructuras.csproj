@@ -47,7 +47,7 @@
     <Compile Include="Estructuras\Lista.cs" />
     <Compile Include="Estructuras\Pila.cs" />
     <Compile Include="Manager\OperationManager.cs" />
-    <Compile Include="Nodo.cs" />
+    <Compile Include="Estructuras\Nodo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

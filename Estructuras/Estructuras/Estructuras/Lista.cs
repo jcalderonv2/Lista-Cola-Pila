@@ -6,6 +6,7 @@ namespace Estructuras.Estructuras
     {
 
         OperationManager operation = new OperationManager();
+
        
         public void Sort(int num)
         {
@@ -21,7 +22,7 @@ namespace Estructuras.Estructuras
            
         }
 
-        public void SearchList(int dato)
+        public void SearchList(int dato) 
         {
 
          operation.Search(dato);
@@ -32,6 +33,13 @@ namespace Estructuras.Estructuras
         {
 
             operation.Delete(dato);
+
+        }
+        
+        public void ChangeToAnother(int dato)
+        {
+
+            operation.Change(dato);
 
         }
 
