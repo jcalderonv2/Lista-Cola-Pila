@@ -1,5 +1,6 @@
 ﻿using System;
 using Estructuras.Estructuras;
+using Estructuras.Manager;
 using Estructuras2;
 
 namespace Estructuras
@@ -10,6 +11,7 @@ namespace Estructuras
         static Lista list = new Lista();
         static Cola cola = new Cola();
         static Pila pila = new Pila();
+        static ABB abb = new ABB();
 
 
         static void Main()
@@ -38,7 +40,8 @@ namespace Estructuras
                 Console.WriteLine("\n 1.Listas.");
                 Console.WriteLine("\n 2.Colas.");
                 Console.WriteLine("\n 3.Pilas.");
-                Console.WriteLine("\n 4.Salir.");
+                Console.WriteLine("\n 4.Arbol binario de busqueda.");
+                Console.WriteLine("\n 5.Salir.");
                 Console.WriteLine("\n Seleccione una opcion: \n");
 
                 option = Console.ReadLine();
@@ -47,7 +50,7 @@ namespace Estructuras
 
 
 
-            } while (option != "4");
+            } while (option != "5");
 
         }
 
@@ -70,6 +73,11 @@ namespace Estructuras
 
                 case "3":
                     MenuPila();
+
+                    break;
+
+                case "4":
+                    MenuArbol();
 
                     break;
 
@@ -431,9 +439,7 @@ namespace Estructuras
 
             }
         }
-
-
-
+        
         private static void InsertPila()
         {
             Nodo nuevo = new Nodo();
@@ -496,6 +502,98 @@ namespace Estructuras
             pila.DeletePila(nuevo.Dato);
             Console.WriteLine("\n El numero " + "'" + nuevo.Dato + "' " + "fue ingresado a la cola.");
 
+        }
+
+        private static void MenuArbol()
+        {
+            string option;
+
+            do
+            {
+
+                Console.WriteLine("\n ---Menu arbol--- \n");
+                Console.WriteLine("\n 1.Agregar dato.");
+                Console.WriteLine("\n 2.Mostrar PreOrden.");
+                Console.WriteLine("\n 3.Mostrar InOrden.");
+                Console.WriteLine("\n 4.Mostrar PostOrden.");
+                Console.WriteLine("\n 5.Atras.");
+                Console.WriteLine("\n Seleccione una opcion: \n");
+
+                option = Console.ReadLine();
+                Console.WriteLine("\n La opcion seleccionada fue: " + option);
+                ProcessArbol(option);
+
+
+            } while (option != "5");
+        }
+
+        private static void ProcessArbol(string option)
+        {
+            switch (option)
+            {
+
+                case "1":
+
+                    InsertArbol();
+
+                    break;
+
+                case "2":
+
+                    PreOrden();
+
+                    break;
+
+                case "3":
+                    InOrden();
+
+                    break;
+
+                case "4":
+                    PostOrden();
+
+                    break;
+
+                default:
+
+                    Console.WriteLine("\n Opcion invalida.");
+                    break;
+
+            }
+        }
+
+        private static void InsertArbol()
+        {
+            NodoArbol nuevo = new NodoArbol();
+            Console.WriteLine("\n Digite un numero: \n");
+            nuevo.Dato = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
+
+            abb.InsertABB(nuevo.Dato);
+            Console.WriteLine("\n El numero " + "'" + nuevo.Dato + "' " + "fue ingresado al arbol binario.");
+        }
+
+        private static void PreOrden()
+        {
+            OperationManager operation = new OperationManager();
+            Console.WriteLine("\n PreOrden: \n");
+            abb.PreOrden(operation._raiz);
+            Console.WriteLine();
+        }
+
+        private static void InOrden()
+        {
+            OperationManager operation = new OperationManager();
+            Console.WriteLine("\n InOrden: \n");
+            abb.InOrden(operation._raiz);
+            Console.WriteLine();
+        }
+
+        private static void PostOrden()
+        {
+            OperationManager operation = new OperationManager();
+            Console.WriteLine("\n PostOrden: \n");
+            abb.PostOrden(operation._raiz);
+            Console.WriteLine();
         }
     }
 }

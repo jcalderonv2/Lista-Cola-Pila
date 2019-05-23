@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Estructuras\ABB.cs" />
     <Compile Include="Estructuras\Cola.cs" />
     <Compile Include="Estructuras\Lista.cs" />
+    <Compile Include="Estructuras\NodoArbol.cs" />
     <Compile Include="Estructuras\Pila.cs" />
     <Compile Include="Manager\OperationManager.cs" />
     <Compile Include="Estructuras\Nodo.cs" />

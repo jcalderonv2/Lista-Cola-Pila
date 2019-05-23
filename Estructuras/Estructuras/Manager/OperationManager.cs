@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using Estructuras.Estructuras;
 using Estructuras2;
 
@@ -10,6 +8,7 @@ namespace Estructuras.Manager
     {
         private Nodo _primero = new Nodo();
         private Nodo _ultimo = new Nodo();
+        public NodoArbol _raiz = new NodoArbol();
 
 
 
@@ -17,6 +16,7 @@ namespace Estructuras.Manager
         {
             _primero = null;
             _ultimo = null;
+            _raiz = null;
 
         }
 
@@ -227,6 +227,91 @@ namespace Estructuras.Manager
 
         }
 
+        public void InsertArbol(int dato)
+        {
+            var Nuevo = new NodoArbol();
+            Nuevo.Dato = dato;
+            Nuevo.Izquierda = null;
+            Nuevo.Derecha = null;
 
+            if (_raiz == null)
+            {
+                _raiz = new NodoArbol();
+                _raiz.Dato = dato;
+            }
+            else
+            {
+                NodoArbol anterior = null, recorrer;
+                recorrer = _raiz;
+
+                while (recorrer != null)
+                {
+                    anterior = recorrer;
+
+                    if (dato < recorrer.Dato)
+                    {
+                        recorrer = recorrer.Derecha;
+                    }
+                    else
+                    {
+                        recorrer = recorrer.Izquierda;
+                    }
+                }
+
+                if (dato < anterior.Dato)
+                {
+                    anterior.Derecha = Nuevo;
+                }
+                else
+                {
+                    anterior.Izquierda = Nuevo;
+                }
+            }
+        }
+
+        public void PreOrden(NodoArbol raiz)
+        {
+
+            Console.WriteLine("-" + raiz.Dato+ "-");
+
+            if (raiz.Izquierda != null)
+            {
+                PreOrden(raiz.Izquierda);
+            }
+
+            if (raiz.Derecha != null)
+            {
+                PreOrden(raiz.Derecha);
+            }
+            
+        }
+
+        public void InOrden(NodoArbol raiz)
+        {
+            if (raiz.Izquierda != null)
+            {
+                InOrden(raiz.Izquierda);
+            }
+            Console.WriteLine(raiz.Dato);
+            if (raiz.Derecha != null)
+            {
+                InOrden(raiz.Derecha);
+            }
+        }
+
+        public void PostOrden(NodoArbol raiz)
+        {
+            if (raiz.Izquierda != null)
+            {
+                PostOrden(raiz.Izquierda);
+            }
+
+            if (raiz.Derecha != null)
+            {
+                PostOrden(raiz.Derecha);
+            }
+
+            Console.WriteLine(raiz.Dato);
+        }
     }
 }
