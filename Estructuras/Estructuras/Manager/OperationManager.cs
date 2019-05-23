@@ -236,8 +236,7 @@ namespace Estructuras.Manager
 
             if (_raiz == null)
             {
-                _raiz = new NodoArbol();
-                _raiz.Dato = dato;
+                _raiz = Nuevo;
             }
             else
             {
@@ -248,7 +247,7 @@ namespace Estructuras.Manager
                 {
                     anterior = recorrer;
 
-                    if (dato < recorrer.Dato)
+                    if (dato > recorrer.Dato)
                     {
                         recorrer = recorrer.Derecha;
                     }
@@ -258,7 +257,7 @@ namespace Estructuras.Manager
                     }
                 }
 
-                if (dato < anterior.Dato)
+                if (dato > anterior.Dato)
                 {
                     anterior.Derecha = Nuevo;
                 }
@@ -272,7 +271,7 @@ namespace Estructuras.Manager
         public void PreOrden(NodoArbol raiz)
         {
 
-            Console.WriteLine("-" + raiz.Dato+ "-");
+            Console.WriteLine(" - " + raiz.Dato);
 
             if (raiz.Izquierda != null)
             {
@@ -283,7 +282,7 @@ namespace Estructuras.Manager
             {
                 PreOrden(raiz.Derecha);
             }
-            
+
         }
 
         public void InOrden(NodoArbol raiz)
@@ -292,11 +291,12 @@ namespace Estructuras.Manager
             {
                 InOrden(raiz.Izquierda);
             }
-            Console.WriteLine(raiz.Dato);
+            Console.WriteLine(" - " + raiz.Dato);
             if (raiz.Derecha != null)
             {
                 InOrden(raiz.Derecha);
             }
+
         }
 
         public void PostOrden(NodoArbol raiz)
@@ -311,7 +311,7 @@ namespace Estructuras.Manager
                 PostOrden(raiz.Derecha);
             }
 
-            Console.WriteLine(raiz.Dato);
+            Console.WriteLine(" - " + raiz.Dato);
         }
     }
 }
